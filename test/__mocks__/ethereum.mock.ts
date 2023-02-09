@@ -1,8 +1,7 @@
 import {
-  SortBalancesRequest,
-  SortBalancesResponse,
+  GetSortedBalancesRequest,
+  GetSortedBalancesResponse,
 } from '@/ethereum/ethereum.dto';
-import { IFilterAddressesResponse } from '@/ethereum/ethereum.interface';
 
 export const mockInvalidAddresses = [
   '0xB012886385e2B629015bc11fdA61b790123C8454',
@@ -16,24 +15,30 @@ export const mockValidAddresses = [
 
 export const mockEthPrice = 1621.32;
 
-export const mockSortBalancesRequest: SortBalancesRequest = {
+export const mockSortBalancesRequest: GetSortedBalancesRequest = {
   addresses: [...mockInvalidAddresses, ...mockValidAddresses],
 };
 
-export const mockSortBalancesResponse: SortBalancesResponse = {
+export const mockSortBalancesResponse: GetSortedBalancesResponse = {
   wrong_addresses: mockInvalidAddresses,
   sorted_addresses: [
-    { address: mockValidAddresses[0], eth_balance: 1, usd_balance: 2000 },
-    { address: mockValidAddresses[1], eth_balance: 2, usd_balance: 4000 },
+    {
+      address: mockValidAddresses[0],
+      eth_balance: 1,
+      eth_usd_value: 2000,
+      usdt_balance: 20,
+      total_usd_value: 2020,
+    },
+    {
+      address: mockValidAddresses[1],
+      eth_balance: 2,
+      eth_usd_value: 4000,
+      usdt_balance: 200,
+      total_usd_value: 4200,
+    },
   ],
 };
 
-export const mockFilterAddressesRequest = mockSortBalancesRequest;
-export const mockFilterAddressesResponse: IFilterAddressesResponse = {
-  validAddresses: mockValidAddresses,
-  invalidAddresses: mockInvalidAddresses,
-};
-
 export const mockEthereumService = {
-  sortBalances: jest.fn((_) => mockSortBalancesResponse),
+  getSortedBalances: jest.fn((_) => mockSortBalancesResponse),
 };

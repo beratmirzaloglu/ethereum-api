@@ -1,7 +1,7 @@
 import { Body, Controller, Post } from '@nestjs/common';
 import {
-  SortBalancesRequest,
-  SortBalancesResponse,
+  GetSortedBalancesRequest,
+  GetSortedBalancesResponse,
 } from '@/ethereum/ethereum.dto';
 import { EthereumService } from '@/ethereum/ethereum.service';
 
@@ -10,9 +10,9 @@ export class EthereumController {
   constructor(private readonly ethereumService: EthereumService) {}
 
   @Post('sort_balances')
-  public async sortBalances(
-    @Body() dto: SortBalancesRequest,
-  ): Promise<SortBalancesResponse> {
-    return this.ethereumService.sortBalances(dto);
+  public async getSortedBalances(
+    @Body() dto: GetSortedBalancesRequest,
+  ): Promise<GetSortedBalancesResponse> {
+    return this.ethereumService.getSortedBalances(dto);
   }
 }

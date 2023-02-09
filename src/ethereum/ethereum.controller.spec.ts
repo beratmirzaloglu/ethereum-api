@@ -26,9 +26,11 @@ describe('EthereumController', () => {
     expect(controller).toBeDefined();
   });
 
-  it('should return the sortBalances service method response', async () => {
-    const response = await controller.sortBalances(mockSortBalancesRequest);
-    expect(mockEthereumService.sortBalances).toHaveBeenCalledWith(
+  it('should return the getSortedBalances service method response', async () => {
+    const response = await controller.getSortedBalances(
+      mockSortBalancesRequest,
+    );
+    expect(mockEthereumService.getSortedBalances).toHaveBeenCalledWith(
       mockSortBalancesRequest,
     );
     expect(response).toEqual(mockSortBalancesResponse);
