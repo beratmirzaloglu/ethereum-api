@@ -10,8 +10,3 @@ export interface IGetEthereumPriceResponse {
 interface Currency {
   usd: number;
 }
-
-export interface IGetBalancesResponse {
-  ethereumBalance: number;
-  usdtBalance: number;
-}

@@ -2,7 +2,6 @@ import {
   GetSortedBalancesRequest,
   GetSortedBalancesResponse,
 } from '@/ethereum/ethereum.dto';
-import { IFilterAddressesResponse } from '@/ethereum/ethereum.interface';
 
 export const mockInvalidAddresses = [
   '0xB012886385e2B629015bc11fdA61b790123C8454',
@@ -38,12 +37,6 @@ export const mockSortBalancesResponse: GetSortedBalancesResponse = {
       total_usd_value: 4200,
     },
   ],
-};
-
-export const mockFilterAddressesRequest = mockSortBalancesRequest;
-export const mockFilterAddressesResponse: IFilterAddressesResponse = {
-  validAddresses: mockValidAddresses,
-  invalidAddresses: mockInvalidAddresses,
 };
 
 export const mockEthereumService = {
