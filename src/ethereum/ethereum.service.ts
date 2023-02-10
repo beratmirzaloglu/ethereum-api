@@ -56,7 +56,7 @@ export class EthereumService {
     wallet.eth_balance = await this.getEthereumBalance(address);
     wallet.usdt_balance = await this.getUsdtBalance(address);
     wallet.eth_usd_value = wallet.eth_balance * ethereumPrice;
-    wallet.total_usd_value = wallet.eth_usd_value + wallet.eth_usd_value;
+    wallet.total_usd_value = wallet.eth_usd_value + wallet.usdt_balance;
     return wallet;
   }
 
